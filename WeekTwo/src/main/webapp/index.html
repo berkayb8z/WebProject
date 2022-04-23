@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CV Builder</title>
+</head>
+<body>
+<h1>This is our welcome page</h1>
+
+<a href="./FirstServlet">Go to Welcome Servlet</a>
+<a href="./DisplayServlet">Go to Display Servlet</a>
+
+<center>
+<form action="FirstServlet" method="POST" enctype="multipart/form-data">
+<label for="name">Fullname:</label>
+<input type="text" name="name"/><br>
+<label for="birthdate">Birthdate:</label>
+<input type="text" name="birthdate"/><br>
+
+ 
+<label for="gender">Gender:</label>
+<input type="radio" name="gender" value="male">Male</input><br>
+<input type="radio" name="gender" value="female" checked>Female</input><br>
+<label for="language">Choose Known Language</label>
+<select name="language" multiple="true">
+   <option value="English">English</option>
+   <option value="French">French</option>
+   <option value="German">German</option>
+ </select><br>
+ <label for="deneyim">Work Experience:</label>
+<input type="checkbox" name="deneyim" value="0-3 yil">0-3 years</input><br> 
+<input type="checkbox" name="deneyim" value="3-6 yil">3-6 years </input><br>
+<label for="file_uploaded">File Upload:</label>
+<input type="file" name="file_uploaded"/><br>
+ <label for="address">Enter your Adress:</label>
+ 
+<textarea name="address" cols="24" rows="2"></textarea><br>
+ 
+
+<input type="submit" name="SingIn" value="Sign In"/>
+</form>
+</center>
+</body>
+</html>
