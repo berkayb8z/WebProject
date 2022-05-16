@@ -1,6 +1,8 @@
 package com.yeditepe.acm412;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class denemeserv2
+ * Servlet implementation class LoginControllerServlet
  */
-@WebServlet("/denemeserv2")
-public class denemeserv2 extends HttpServlet {
+@WebServlet("/LoginController")
+public class LoginControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public denemeserv2() {
+    public LoginControllerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +37,25 @@ public class denemeserv2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		String eposta = request.getParameter("email");
+		String sifre = request.getParameter("password");
 
+		UserDAO dao = new UserDAO();
+		
+		if(eposta!=null && sifre!=null) {
+
+			User client = dao.checkUser(eposta, sifre);
+			
+			request.setAttribute("user", client);
+			
+			//ktüphane ekledim bb
+			RequestDispatcher rd = request.getRequestDispatcher("/MainServlet");
+			rd.forward(request, response);			
+		}
+		
+		
+		else {
+			response.sendRedirect("index.html");
+		}		
+	}
 }

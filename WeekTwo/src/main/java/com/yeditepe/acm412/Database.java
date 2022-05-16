@@ -1,4 +1,4 @@
-package comyeditepe.Database;
+package com.yeditepe.acm412;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
